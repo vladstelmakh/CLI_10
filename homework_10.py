@@ -13,7 +13,7 @@ class Phone(Field):
 
 class Record:
     def __init__(self, name, phones=None):
-        self.name = Name(name)
+        self.name = name
         self.phones = phones if phones is not None else []
 
     def add_phone(self, phone):
@@ -54,9 +54,9 @@ def handle_input(command):
     return command.lower()
 
 def add_contact(name, phone):
-    record = Record(name, [phone]) 
-    phone_book.add_record(name, [phone]) 
+    phone_book.add_record(Name(name), [Phone(phone)]) 
     return f"Contact {name} has been added with phone number {phone}"
+
 
 def change_contact(name, current_phone, new_phone):
     if name in phone_book.data:
